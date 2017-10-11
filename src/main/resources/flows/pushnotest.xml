@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<process name="push_notest" displayName="免测push流程" instanceUrl="/snaker/flow/all">
+    <start layout="-23,145,50,50" name="push-notest-start">
+        <transition offset="0,-10" to="push_notest_apply" name="push_notest_path6" displayName="path6"/>
+    </start>
+    <task assignee="push_notest_apply.operator" layout="105,146,100,50" name="push_notest_apply" displayName="免测push申请" form="/flow/push/notest/apply">
+        <transition offset="0,-10" to="push_notest_approve" name="push_notest_path7" displayName="path7"/>
+    </task>
+    <task assignee="push_notest_approve.operator" layout="296,148,100,50" name="push_notest_approve" displayName="免测push审批" form="/flow/push/notest/approve">
+        <transition offset="0,-10" to="push_notest_diff_approve" name="push_notest_path8" displayName="path8"/>
+    </task>
+    <task assignee="push_notest_diff_approve.operator" layout="475,149,100,50" name="push_notest_diff_approve" displayName="免测push确认diff" form="/flow/push/notest/approveDiff">
+        <transition offset="0,-10" to="push_notest_end" name="push_notest_path9" displayName="path9"/>
+    </task>
+    <end layout="641,147,50,50" name="push_notest_end"></end>
+</process>
